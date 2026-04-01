@@ -7,6 +7,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { useCartStore } from "@/store/cart";
+import { motion } from "framer-motion";
 import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,9 +35,14 @@ export default function CartSheet() {
       >
         <ShoppingBag className="h-5 w-5" />
         {count > 0 && (
-          <span className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black text-[10px] font-medium text-white">
+          <motion.span
+            key={count}
+            initial={{ scale: 1.5 }}
+            animate={{ scale: 1 }}
+            className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black text-[10px] font-medium text-white"
+          >
             {count}
-          </span>
+          </motion.span>
         )}
       </SheetTrigger>
 

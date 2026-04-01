@@ -2,6 +2,7 @@
 
 import { useCartStore } from "@/store/cart";
 import type { Product, ProductVariant } from "@prisma/client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -186,7 +187,8 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
           )}
 
           {/* Add to cart */}
-          <button
+          <motion.button
+            whileTap={{ scale: 0.95 }}
             disabled={!selectedVariant || selectedVariant.stock === 0}
             onClick={() => {
               if (!selectedVariant || !selectedColor || !selectedSize) return;
@@ -203,7 +205,7 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
             className="mt-6 w-full cursor-pointer rounded-lg bg-black py-3 text-sm font-medium text-white hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
           >
             Add to cart
-          </button>
+          </motion.button>
         </div>
       </div>
     </div>

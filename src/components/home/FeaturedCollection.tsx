@@ -1,4 +1,5 @@
 import ProductCard from "@/components/product/ProductCard";
+import MotionDiv from "@/components/ui/MotionDiv";
 import type { Product, ProductVariant } from "@prisma/client";
 import Link from "next/link";
 
@@ -24,22 +25,23 @@ export default function FeaturedCollection({
 
       {/* Product grid */}
       <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 md:gap-6">
-        {products.map((product) => {
+        {products.map((product, idx) => {
           const minPrice = Math.min(...product.variants.map((v) => v.price));
           const colors = [
             ...new Set(product.variants.map((v) => v.color)),
           ];
           return (
-            <ProductCard
-              key={product.slug}
-              name={product.name}
-              price={minPrice}
-              originalPrice={product.compareAtPrice ?? undefined}
-              image={product.images[0] ?? undefined}
-              slug={product.slug}
-              colors={colors}
-              badge={product.compareAtPrice ? `-${Math.round((1 - minPrice / product.compareAtPrice) * 100)}%` : "New"}
-            />
+            <MotionDiv key={product.slug} index={idx}>
+              <ProductCard
+                name={product.name}
+                price={minPrice}
+                originalPrice={product.compareAtPrice ?? undefined}
+                image={product.images[0] ?? undefined}
+                slug={product.slug}
+                colors={colors}
+                badge={product.compareAtPrice ? `-${Math.round((1 - minPrice / product.compareAtPrice) * 100)}%` : "New"}
+              />
+            </MotionDiv>
           );
         })}
       </div>

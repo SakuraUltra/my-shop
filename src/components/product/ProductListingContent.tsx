@@ -2,6 +2,7 @@
 
 import ProductCard from "@/components/product/ProductCard";
 import ProductFilters, { type Filters } from "@/components/product/ProductFilters";
+import MotionDiv from "@/components/ui/MotionDiv";
 import { useMemo, useState } from "react";
 
 type Product = {
@@ -201,21 +202,22 @@ export default function ProductListingContent() {
       {/* Grid */}
       {filtered.length > 0 ? (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-          {filtered.map((p) => (
-            <ProductCard
-              key={p.slug}
-              name={p.name}
-              price={p.price}
-              originalPrice={p.compareAtPrice}
-              image={p.image}
-              slug={p.slug}
-              colors={p.colorHexes}
-              badge={
-                p.compareAtPrice
-                  ? `-${Math.round((1 - p.price / p.compareAtPrice) * 100)}%`
-                  : undefined
-              }
-            />
+          {filtered.map((p, i) => (
+            <MotionDiv key={p.slug} index={i}>
+              <ProductCard
+                name={p.name}
+                price={p.price}
+                originalPrice={p.compareAtPrice}
+                image={p.image}
+                slug={p.slug}
+                colors={p.colorHexes}
+                badge={
+                  p.compareAtPrice
+                    ? `-${Math.round((1 - p.price / p.compareAtPrice) * 100)}%`
+                    : undefined
+                }
+              />
+            </MotionDiv>
           ))}
         </div>
       ) : (

@@ -1,6 +1,7 @@
 "use client";
 
 import ProductCard from "@/components/product/ProductCard";
+import MotionDiv from "@/components/ui/MotionDiv";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -94,17 +95,18 @@ export default function OnSaleContent() {
       {/* Grid */}
       {sorted.length > 0 ? (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-          {sorted.map((p) => (
-            <ProductCard
-              key={p.slug}
-              name={p.name}
-              price={p.price}
-              originalPrice={p.compareAtPrice}
-              image={p.image}
-              slug={p.slug}
-              colors={p.colorHexes}
-              badge={`-${Math.round((1 - p.price / p.compareAtPrice) * 100)}%`}
-            />
+          {sorted.map((p, i) => (
+            <MotionDiv key={p.slug} index={i}>
+              <ProductCard
+                name={p.name}
+                price={p.price}
+                originalPrice={p.compareAtPrice}
+                image={p.image}
+                slug={p.slug}
+                colors={p.colorHexes}
+                badge={`-${Math.round((1 - p.price / p.compareAtPrice) * 100)}%`}
+              />
+            </MotionDiv>
           ))}
         </div>
       ) : (
