@@ -1,0 +1,99 @@
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+export default function RegisterPage() {
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    localStorage.setItem("auth", "true");
+    router.push("/");
+  };
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-neutral-50">
+      <div className="w-full max-w-sm p-8">
+        <h2 className="text-center text-xl font-bold tracking-tight">MY SHOP</h2>
+        <h1 className="mt-4 text-center text-2xl font-semibold">Create account</h1>
+
+        {/* Google */}
+        <button
+          type="button"
+          onClick={() => alert("Google login coming soon")}
+          className="mt-8 w-full cursor-pointer rounded-lg border py-2.5 text-sm font-medium transition-colors hover:bg-neutral-50"
+        >
+          Continue with Google
+        </button>
+
+        {/* Divider */}
+        <div className="my-6 flex items-center gap-4">
+          <div className="h-px flex-1 bg-neutral-200" />
+          <span className="text-sm text-neutral-400">or</span>
+          <div className="h-px flex-1 bg-neutral-200" />
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-neutral-700">
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-neutral-700">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
+            />
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-neutral-700">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full cursor-pointer rounded-lg bg-black py-2.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
+          >
+            Create account
+          </button>
+        </form>
+
+        <p className="mt-6 text-center text-sm text-neutral-500">
+          Already have an account?{" "}
+          <Link href="/auth/signin" className="font-medium text-black underline underline-offset-4">
+            Sign in
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+}
