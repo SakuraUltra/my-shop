@@ -1,6 +1,7 @@
 "use client";
 
 import CartSheet from "@/components/cart/CartSheet";
+import SearchDialog from "@/components/layout/SearchDialog";
 import ThemeToggle from "@/components/layout/ThemeToggle";
 import {
     DropdownMenu,
@@ -26,9 +27,21 @@ const navLinks = [
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem("auth") === "true");
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const handleSignOut = () => {
@@ -65,10 +78,16 @@ export default function Navbar() {
           <button
             type="button"
             aria-label="Search"
-            className="cursor-pointer text-gray-700 transition-colors hover:text-gray-500 dark:text-neutral-300 dark:hover:text-white"
+            onClick={() => setSearchOpen(true)}
+            className="flex cursor-pointer items-center gap-1.5 text-gray-700 transition-colors hover:text-gray-500 dark:text-neutral-300 dark:hover:text-white"
           >
             <Search className="h-5 w-5" />
+            <kbd className="hidden rounded border border-neutral-200 px-1.5 py-0.5 text-xs text-neutral-400 dark:border-neutral-700 md:inline">
+              ⌘K
+            </kbd>
           </button>
+
+          <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
 
           <CartSheet />
 
