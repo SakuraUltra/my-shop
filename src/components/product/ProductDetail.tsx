@@ -4,6 +4,7 @@ import { useCartStore } from "@/store/cart";
 import type { Product, ProductVariant } from "@prisma/client";
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 
 type ProductWithVariants = Product & { variants: ProductVariant[] };
 
@@ -197,6 +198,7 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
                 price: selectedVariant.price,
                 image: product.images[0] ?? "",
               });
+              toast.success("Added to cart");
             }}
             className="mt-6 w-full cursor-pointer rounded-lg bg-black py-3 text-sm font-medium text-white hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
           >

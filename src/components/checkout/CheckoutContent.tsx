@@ -5,6 +5,7 @@ import { useCartStore } from "@/store/cart";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export default function CheckoutContent() {
   const router = useRouter();
@@ -23,6 +24,7 @@ export default function CheckoutContent() {
   const handlePlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
     clearCart();
+    toast.success("Order placed successfully");
     router.push("/orders/demo-order");
   };
 

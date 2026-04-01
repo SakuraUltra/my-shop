@@ -11,6 +11,7 @@ import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export default function CartSheet() {
   const items = useCartStore((s) => s.items);
@@ -83,7 +84,7 @@ export default function CartSheet() {
                           </p>
                         </div>
                         <button
-                          onClick={() => removeItem(item.variantId)}
+                          onClick={() => { removeItem(item.variantId); toast("Item removed"); }}
                           className="cursor-pointer text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
                           aria-label="Remove item"
                         >

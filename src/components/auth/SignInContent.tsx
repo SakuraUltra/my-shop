@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function SignInContent() {
   const router = useRouter();
@@ -12,6 +13,7 @@ export default function SignInContent() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     localStorage.setItem("auth", "true");
+    toast.success("Welcome back!");
     router.push("/");
   };
 
@@ -24,7 +26,7 @@ export default function SignInContent() {
         {/* Google */}
         <button
           type="button"
-          onClick={() => alert("Google login coming soon")}
+          onClick={() => toast("Google login coming soon")}
           className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-neutral-300 bg-white py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-neutral-50 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
         >
           <svg viewBox="0 0 24 24" className="h-5 w-5">
