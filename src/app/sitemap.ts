@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://your-domain.vercel.app";
+  const baseUrl = "https://my-shop-seven-iota.vercel.app";
 
   const staticPages = [
     { url: baseUrl, lastModified: new Date(), priority: 1.0 },

@@ -5,6 +5,6 @@ export default function robots() {
       allow: "/",
       disallow: ["/admin/", "/checkout", "/api/"],
     },
-    sitemap: "https://your-domain.vercel.app/sitemap.xml",
+    sitemap: "https://my-shop-seven-iota.vercel.app/sitemap.xml",
   };
 }

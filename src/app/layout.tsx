@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-domain.vercel.app",
+    url: "https://my-shop-seven-iota.vercel.app",
     siteName: "Your Brand",
     title: "Your Brand — Minimal Fashion & Accessories",
     description:
