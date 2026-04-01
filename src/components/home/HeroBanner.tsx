@@ -11,21 +11,21 @@ export default function HeroBanner() {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-white/60" />
+      <div className="absolute inset-0 bg-white/60 dark:bg-black/60" />
       <div className="relative z-10 space-y-6 px-4">
-        <span className="text-xs font-medium uppercase tracking-widest text-neutral-500">
+        <span className="text-xs font-medium uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
           New Collection
         </span>
-        <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl md:text-6xl">
+        <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white sm:text-4xl md:text-6xl">
           Designed for Everyday
         </h1>
-        <p className="mx-auto max-w-md text-lg text-neutral-500">
+        <p className="mx-auto max-w-md text-lg text-neutral-500 dark:text-neutral-300">
           Timeless essentials crafted with premium materials and minimal design.
         </p>
         <div>
           <Link
             href="/products"
-            className="mx-auto inline-block max-w-xs rounded-full bg-neutral-900 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-neutral-800 active:bg-neutral-700"
+            className="mx-auto inline-block max-w-xs rounded-full bg-neutral-900 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-neutral-800 active:bg-neutral-700 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
           >
             Shop now
           </Link>

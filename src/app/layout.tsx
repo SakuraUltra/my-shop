@@ -1,6 +1,7 @@
 import AnnouncementBar from "@/components/home/AnnouncementBar";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import ThemeProvider from "@/components/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -67,12 +68,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <AnnouncementBar />
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <AnnouncementBar />
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

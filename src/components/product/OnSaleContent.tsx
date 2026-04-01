@@ -58,7 +58,7 @@ export default function OnSaleContent() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12">
       {/* Sale banner */}
-      <div className="mb-8 rounded-lg border border-red-100 bg-red-50 p-4 text-center">
+      <div className="mb-8 rounded-lg border border-red-100 bg-red-50 p-4 text-center dark:border-red-900 dark:bg-red-950">
         <p className="font-medium text-red-600">
           Up to 50% off — while stocks last
         </p>
@@ -68,22 +68,22 @@ export default function OnSaleContent() {
       <div className="flex items-baseline justify-between">
         <div>
           <h1 className="text-2xl font-semibold">On Sale</h1>
-          <p className="mt-1 text-neutral-500">
+          <p className="mt-1 text-neutral-500 dark:text-neutral-400">
             Limited time offers on selected items
           </p>
         </div>
-        <span className="text-sm text-neutral-500">
+        <span className="text-sm text-neutral-500 dark:text-neutral-400">
           {sorted.length} products
         </span>
       </div>
 
       {/* Sort */}
       <div className="mt-6 mb-6 flex items-center gap-2">
-        <span className="text-sm font-medium text-neutral-700">Sort by</span>
+        <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Sort by</span>
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value as SortOption)}
-          className="rounded-lg border px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-black"
+          className="rounded-lg border px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-black dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:focus:ring-white"
         >
           <option value="biggest-discount">Biggest discount</option>
           <option value="price-asc">Price: Low to High</option>
@@ -109,10 +109,10 @@ export default function OnSaleContent() {
         </div>
       ) : (
         <div className="py-20 text-center">
-          <p className="text-neutral-500">No items on sale right now</p>
+          <p className="text-neutral-500 dark:text-neutral-400">No items on sale right now</p>
           <Link
             href="/products"
-            className="mt-4 inline-block text-sm font-medium text-black underline underline-offset-4"
+            className="mt-4 inline-block text-sm font-medium text-black underline underline-offset-4 dark:text-white"
           >
             Browse all products
           </Link>

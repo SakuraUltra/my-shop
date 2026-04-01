@@ -38,7 +38,7 @@ export default function CheckoutContent() {
           {/* Contact */}
           <section>
             <h2 className="mb-4 text-lg font-semibold">Contact</h2>
-            <label htmlFor="email" className="block text-sm font-medium text-neutral-700">
+            <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
               Email
             </label>
             <Input
@@ -56,26 +56,26 @@ export default function CheckoutContent() {
             <h2 className="mb-4 text-lg font-semibold">Shipping address</h2>
             <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-neutral-700">
+                <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                   Name
                 </label>
                 <Input id="name" required className="mt-1 h-10" />
               </div>
               <div>
-                <label htmlFor="address" className="block text-sm font-medium text-neutral-700">
+                <label htmlFor="address" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                   Address
                 </label>
                 <Input id="address" required className="mt-1 h-10" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="city" className="block text-sm font-medium text-neutral-700">
+                  <label htmlFor="city" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                     City
                   </label>
                   <Input id="city" required className="mt-1 h-10" />
                 </div>
                 <div>
-                  <label htmlFor="state" className="block text-sm font-medium text-neutral-700">
+                  <label htmlFor="state" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                     State
                   </label>
                   <Input id="state" required className="mt-1 h-10" />
@@ -83,19 +83,19 @@ export default function CheckoutContent() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="zip" className="block text-sm font-medium text-neutral-700">
+                  <label htmlFor="zip" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                     ZIP code
                   </label>
                   <Input id="zip" required className="mt-1 h-10" />
                 </div>
                 <div>
-                  <label htmlFor="country" className="block text-sm font-medium text-neutral-700">
+                  <label htmlFor="country" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                     Country
                   </label>
                   <select
                     id="country"
                     required
-                    className="mt-1 h-10 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                    className="mt-1 h-10 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:border-neutral-700 dark:bg-neutral-900"
                   >
                     <option value="US">United States</option>
                     <option value="UK">United Kingdom</option>
@@ -112,22 +112,22 @@ export default function CheckoutContent() {
           <section className="mt-8">
             <h2 className="mb-4 text-lg font-semibold">Payment method</h2>
             <p className="mb-3 text-xs text-neutral-400">Visa · Mastercard · Amex</p>
-            <div className="space-y-4 rounded-lg border p-4">
+            <div className="space-y-4 rounded-lg border p-4 dark:border-neutral-700">
               <div>
-                <label htmlFor="card" className="block text-sm font-medium text-neutral-700">
+                <label htmlFor="card" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                   Card number
                 </label>
                 <Input id="card" placeholder="4242 4242 4242 4242" required className="mt-1 h-10" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="expiry" className="block text-sm font-medium text-neutral-700">
+                  <label htmlFor="expiry" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                     Expiry
                   </label>
                   <Input id="expiry" placeholder="MM/YY" required className="mt-1 h-10" />
                 </div>
                 <div>
-                  <label htmlFor="cvc" className="block text-sm font-medium text-neutral-700">
+                  <label htmlFor="cvc" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
                     CVC
                   </label>
                   <Input id="cvc" placeholder="123" required className="mt-1 h-10" />
@@ -139,14 +139,14 @@ export default function CheckoutContent() {
 
         {/* Right — Order summary */}
         <div className="md:w-2/5">
-          <div className="h-fit rounded-lg border bg-neutral-50 p-6 md:sticky md:top-24">
+          <div className="h-fit rounded-lg border bg-neutral-50 p-6 md:sticky md:top-24 dark:border-neutral-700 dark:bg-neutral-900">
             <h2 className="text-lg font-semibold">Order summary</h2>
 
             {mounted && items.length > 0 ? (
               <ul className="mt-4">
                 {items.map((item) => (
-                  <li key={item.variantId} className="flex gap-3 border-b py-3">
-                    <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded bg-neutral-200">
+                  <li key={item.variantId} className="flex gap-3 border-b py-3 dark:border-neutral-700">
+                    <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded bg-neutral-200 dark:bg-neutral-800">
                       {item.image ? (
                         <Image src={item.image} alt={item.productName} fill className="object-cover" />
                       ) : (
@@ -156,12 +156,12 @@ export default function CheckoutContent() {
                     <div className="flex flex-1 flex-col justify-between">
                       <div>
                         <p className="text-sm font-medium">{item.productName}</p>
-                        <p className="text-xs text-neutral-500">
+                        <p className="text-xs text-neutral-500 dark:text-neutral-400">
                           {item.color} / {item.size}
                         </p>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-neutral-500">Qty {item.quantity}</span>
+                        <span className="text-xs text-neutral-500 dark:text-neutral-400">Qty {item.quantity}</span>
                         <span className="text-sm font-medium">
                           ${((item.price * item.quantity) / 100).toFixed(2)}
                         </span>
@@ -171,21 +171,21 @@ export default function CheckoutContent() {
                 ))}
               </ul>
             ) : (
-              <p className="mt-4 text-sm text-neutral-500">No items in cart</p>
+              <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">No items in cart</p>
             )}
 
             <div className="mt-4 space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-neutral-600">Subtotal</span>
+                <span className="text-neutral-600 dark:text-neutral-400">Subtotal</span>
                 <span>${(subtotal / 100).toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-neutral-600">Shipping</span>
+                <span className="text-neutral-600 dark:text-neutral-400">Shipping</span>
                 <span>Free</span>
               </div>
             </div>
 
-            <div className="mt-4 border-t pt-4">
+            <div className="mt-4 border-t pt-4 dark:border-neutral-700">
               <div className="flex justify-between text-lg font-semibold">
                 <span>Total</span>
                 <span>${(subtotal / 100).toFixed(2)}</span>
@@ -194,7 +194,7 @@ export default function CheckoutContent() {
 
             <button
               type="submit"
-              className="mt-4 w-full cursor-pointer rounded-lg bg-black py-3 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
+              className="mt-4 w-full cursor-pointer rounded-lg bg-black py-3 text-sm font-medium text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
             >
               Place order
             </button>

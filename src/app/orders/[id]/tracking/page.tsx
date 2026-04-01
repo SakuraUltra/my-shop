@@ -14,7 +14,7 @@ export default function TrackingPage() {
     <div className="mx-auto max-w-2xl px-4 py-12">
       {/* Header */}
       <h1 className="text-2xl font-semibold">Order tracking</h1>
-      <div className="mt-2 space-y-0.5 text-sm text-neutral-500">
+      <div className="mt-2 space-y-0.5 text-sm text-neutral-500 dark:text-neutral-400">
         <p>Order #ORD-20260401-DEMO</p>
         <p>Carrier: DHL Express · Tracking: 1234567890</p>
       </div>
@@ -33,15 +33,15 @@ export default function TrackingPage() {
                     step.current ? "bg-green-500" : "border-2 border-neutral-300"
                   }`}
                 />
-                {!isLast && <div className="w-0 flex-1 border-l-2 border-neutral-200" />}
+                {!isLast && <div className="w-0 flex-1 border-l-2 border-neutral-200 dark:border-neutral-700" />}
               </div>
 
               {/* Content */}
               <div className="-mt-0.5 pb-2">
-                <p className={`text-sm ${step.current ? "font-semibold text-neutral-900" : "text-neutral-700"}`}>
+                <p className={`text-sm ${step.current ? "font-semibold text-neutral-900 dark:text-white" : "text-neutral-700 dark:text-neutral-300"}`}>
                   {step.status}
                 </p>
-                <p className="mt-0.5 text-xs text-neutral-400 sm:mt-0">{step.time}</p>
+                <p className="mt-0.5 text-xs text-neutral-400 dark:text-neutral-500 sm:mt-0">{step.time}</p>
               </div>
             </div>
           );
@@ -51,7 +51,7 @@ export default function TrackingPage() {
       {/* Back button */}
       <Link
         href="/orders/demo-order"
-        className="mt-4 inline-block rounded-lg border px-6 py-2.5 text-sm font-medium transition-colors hover:bg-neutral-50"
+        className="mt-4 inline-block rounded-lg border px-6 py-2.5 text-sm font-medium transition-colors hover:bg-neutral-50 dark:border-neutral-700 dark:hover:bg-neutral-800"
       >
         Back to order
       </Link>

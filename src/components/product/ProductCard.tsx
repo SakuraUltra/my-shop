@@ -25,7 +25,7 @@ export default function ProductCard({
   return (
     <Link href={`/products/${slug}`} className="group block">
       {/* Image area */}
-      <div className="relative aspect-square overflow-hidden rounded-lg bg-neutral-100">
+      <div className="relative aspect-square overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
         {image ? (
           <Image
             src={image}
@@ -48,11 +48,11 @@ export default function ProductCard({
       </div>
 
       {/* Product info */}
-      <h3 className="mt-3 text-sm font-medium text-neutral-900">{name}</h3>
+      <h3 className="mt-3 text-sm font-medium text-neutral-900 dark:text-neutral-100">{name}</h3>
 
       {/* Price */}
       <div className="mt-1 flex flex-nowrap items-center gap-2">
-        <span className="text-sm font-semibold text-neutral-900">
+        <span className="text-sm font-semibold text-neutral-900 dark:text-white">
           ${(price / 100).toFixed(2)}
         </span>
         {originalPrice && (
@@ -68,7 +68,7 @@ export default function ProductCard({
           {colors.map((color) => (
             <span
               key={color}
-              className="h-3.5 w-3.5 rounded-full border border-neutral-200"
+              className="h-3.5 w-3.5 rounded-full border border-neutral-200 dark:border-neutral-600"
               style={{ backgroundColor: color }}
             />
           ))}

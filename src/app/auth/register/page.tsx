@@ -17,7 +17,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-neutral-50">
+    <div className="flex min-h-screen items-center justify-center bg-neutral-50 dark:bg-neutral-950">
       <div className="w-full max-w-sm p-8">
         <h2 className="text-center text-xl font-bold tracking-tight">MY SHOP</h2>
         <h1 className="mt-4 text-center text-2xl font-semibold">Create account</h1>
@@ -26,7 +26,7 @@ export default function RegisterPage() {
         <button
           type="button"
           onClick={() => alert("Google login coming soon")}
-          className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-neutral-300 bg-white py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-neutral-50"
+          className="mt-8 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-neutral-300 bg-white py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-neutral-50 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
         >
           <svg viewBox="0 0 24 24" className="h-5 w-5">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
@@ -39,15 +39,15 @@ export default function RegisterPage() {
 
         {/* Divider */}
         <div className="my-6 flex items-center gap-4">
-          <div className="h-px flex-1 bg-neutral-200" />
+          <div className="h-px flex-1 bg-neutral-200 dark:bg-neutral-700" />
           <span className="text-sm text-neutral-400">or</span>
-          <div className="h-px flex-1 bg-neutral-200" />
+          <div className="h-px flex-1 bg-neutral-200 dark:bg-neutral-700" />
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-neutral-700">
+            <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
               Name
             </label>
             <input
@@ -56,11 +56,11 @@ export default function RegisterPage() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
+              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:focus:ring-white"
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-neutral-700">
+            <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
               Email
             </label>
             <input
@@ -69,11 +69,11 @@ export default function RegisterPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
+              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:focus:ring-white"
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-neutral-700">
+            <label htmlFor="password" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
               Password
             </label>
             <input
@@ -82,20 +82,20 @@ export default function RegisterPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black"
+              className="mt-1 w-full rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:focus:ring-white"
             />
           </div>
           <button
             type="submit"
-            className="w-full cursor-pointer rounded-lg bg-black py-2.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
+            className="w-full cursor-pointer rounded-lg bg-black py-2.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
           >
             Create account
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-neutral-500">
+        <p className="mt-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
           Already have an account?{" "}
-          <Link href="/auth/signin" className="font-medium text-black underline underline-offset-4">
+          <Link href="/auth/signin" className="font-medium text-black underline underline-offset-4 dark:text-white">
             Sign in
           </Link>
         </p>

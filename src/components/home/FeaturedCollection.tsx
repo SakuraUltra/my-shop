@@ -16,7 +16,7 @@ export default function FeaturedCollection({
         <h2 className="text-2xl font-semibold">Featured collection</h2>
         <Link
           href="/products"
-          className="text-sm text-neutral-500 transition-colors hover:text-black"
+          className="text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
         >
           View all →
         </Link>

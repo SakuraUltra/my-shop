@@ -81,7 +81,7 @@ export default function ProductFilters({ filters, onChange }: Props) {
           />
           {/* Color */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm transition-colors hover:bg-neutral-50">
+          <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm transition-colors hover:bg-neutral-50 dark:border-neutral-700 dark:hover:bg-neutral-800">
               Color
               <ChevronDown className="h-3.5 w-3.5 text-neutral-400" />
             </DropdownMenuTrigger>
@@ -94,7 +94,7 @@ export default function ProductFilters({ filters, onChange }: Props) {
                 >
                   {c.hex && (
                     <span
-                      className="inline-block h-2.5 w-2.5 rounded-full border border-neutral-200"
+                      className="inline-block h-2.5 w-2.5 rounded-full border border-neutral-200 dark:border-neutral-600"
                       style={{ backgroundColor: c.hex }}
                     />
                   )}
@@ -136,12 +136,12 @@ export default function ProductFilters({ filters, onChange }: Props) {
                         key={c.value}
                         onClick={() => set("color", c.value)}
                         className={`flex w-full cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm ${
-                          filters.color === c.value ? "bg-neutral-100 font-medium" : ""
+                          filters.color === c.value ? "bg-neutral-100 font-medium dark:bg-neutral-800" : ""
                         }`}
                       >
                         {c.hex && (
                           <span
-                            className="inline-block h-2.5 w-2.5 rounded-full border border-neutral-200"
+                            className="inline-block h-2.5 w-2.5 rounded-full border border-neutral-200 dark:border-neutral-600"
                             style={{ backgroundColor: c.hex }}
                           />
                         )}
@@ -163,7 +163,7 @@ export default function ProductFilters({ filters, onChange }: Props) {
 
         {/* Right — Sort */}
         <div className="flex items-center gap-2">
-          <span className="hidden text-sm text-neutral-500 sm:inline">Sort by</span>
+          <span className="hidden text-sm text-neutral-500 dark:text-neutral-400 sm:inline">Sort by</span>
           <Select value={filters.sort} onValueChange={(v) => v && set("sort", v)}>
             <SelectTrigger className="h-9 w-[180px]">
               <SelectValue />
@@ -185,15 +185,15 @@ export default function ProductFilters({ filters, onChange }: Props) {
           {activeFilters.map((f) => (
             <span
               key={f.key}
-              className="flex items-center gap-1 rounded-full bg-neutral-100 px-3 py-1 text-xs"
+              className="flex items-center gap-1 rounded-full bg-neutral-100 px-3 py-1 text-xs dark:bg-neutral-800"
             >
               {f.label}
-              <button onClick={() => clearFilter(f.key)} className="cursor-pointer text-neutral-400 hover:text-neutral-700">
+              <button onClick={() => clearFilter(f.key)} className="cursor-pointer text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200">
                 <X className="h-3 w-3" />
               </button>
             </span>
           ))}
-          <button onClick={clearAll} className="cursor-pointer text-xs text-neutral-500 underline underline-offset-2 hover:text-neutral-800">
+          <button onClick={clearAll} className="cursor-pointer text-xs text-neutral-500 underline underline-offset-2 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-white">
             Clear all
           </button>
         </div>
@@ -216,7 +216,7 @@ function FilterDropdown({
 }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm transition-colors hover:bg-neutral-50">
+      <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm transition-colors hover:bg-neutral-50 dark:border-neutral-700 dark:hover:bg-neutral-800">
         {label}
         <ChevronDown className="h-3.5 w-3.5 text-neutral-400" />
       </DropdownMenuTrigger>
@@ -256,7 +256,7 @@ function MobileFilterSection({
             key={opt}
             onClick={() => onSelect(opt)}
             className={`w-full cursor-pointer rounded px-2 py-1.5 text-left text-sm ${
-              value === opt ? "bg-neutral-100 font-medium" : ""
+              value === opt ? "bg-neutral-100 font-medium dark:bg-neutral-800" : ""
             }`}
           >
             {opt}

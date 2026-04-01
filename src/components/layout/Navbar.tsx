@@ -1,6 +1,7 @@
 "use client";
 
 import CartSheet from "@/components/cart/CartSheet";
+import ThemeToggle from "@/components/layout/ThemeToggle";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -36,10 +37,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-md dark:border-neutral-800 dark:bg-neutral-950/80">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         {/* Left: Logo */}
-        <Link href="/" className="text-xl font-bold tracking-tight">
+        <Link href="/" className="text-xl font-bold tracking-tight dark:text-white">
           MY SHOP
         </Link>
 
@@ -49,7 +50,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium tracking-wide text-gray-900 transition-colors hover:text-gray-500"
+                className="text-sm font-medium tracking-wide text-gray-900 transition-colors hover:text-gray-500 dark:text-neutral-200 dark:hover:text-white"
               >
                 {link.label}
               </Link>
@@ -59,10 +60,12 @@ export default function Navbar() {
 
         {/* Right: Icons */}
         <div className="flex items-center gap-4">
+          <ThemeToggle />
+
           <button
             type="button"
             aria-label="Search"
-            className="cursor-pointer text-gray-700 transition-colors hover:text-gray-500"
+            className="cursor-pointer text-gray-700 transition-colors hover:text-gray-500 dark:text-neutral-300 dark:hover:text-white"
           >
             <Search className="h-5 w-5" />
           </button>
@@ -71,7 +74,7 @@ export default function Navbar() {
 
           {isLoggedIn ? (
             <DropdownMenu>
-              <DropdownMenuTrigger className="cursor-pointer text-gray-700 transition-colors hover:text-gray-500">
+              <DropdownMenuTrigger className="cursor-pointer text-gray-700 transition-colors hover:text-gray-500 dark:text-neutral-300 dark:hover:text-white">
                 <User className="h-5 w-5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" sideOffset={8}>
@@ -89,7 +92,7 @@ export default function Navbar() {
           ) : (
             <Link
               href="/auth/signin"
-              className="text-gray-700 transition-colors hover:text-gray-500"
+              className="text-gray-700 transition-colors hover:text-gray-500 dark:text-neutral-300 dark:hover:text-white"
               aria-label="Account"
             >
               <User className="h-5 w-5" />
@@ -100,7 +103,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger
-                className="cursor-pointer text-gray-700 transition-colors hover:text-gray-500"
+                className="cursor-pointer text-gray-700 transition-colors hover:text-gray-500 dark:text-neutral-300 dark:hover:text-white"
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />
@@ -113,7 +116,7 @@ export default function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="text-base font-medium tracking-wide text-gray-900 transition-colors hover:text-gray-500"
+                      className="text-base font-medium tracking-wide text-gray-900 transition-colors hover:text-gray-500 dark:text-neutral-200 dark:hover:text-white"
                     >
                       {link.label}
                     </Link>

@@ -20,13 +20,13 @@ const signals = [
 
 export default function TrustSignals() {
   return (
-    <section className="mx-auto max-w-7xl border-y px-4 py-12">
+    <section className="mx-auto max-w-7xl border-y px-4 py-12 dark:border-neutral-800">
       <div className="grid grid-cols-3 gap-4">
         {signals.map((signal) => (
           <div key={signal.title} className="text-center">
-            <signal.icon className="mx-auto h-6 w-6 text-neutral-600" />
+            <signal.icon className="mx-auto h-6 w-6 text-neutral-600 dark:text-neutral-400" />
             <p className="mt-2 text-sm font-medium">{signal.title}</p>
-            <p className="text-xs text-neutral-400">{signal.description}</p>
+            <p className="text-xs text-neutral-400 dark:text-neutral-500">{signal.description}</p>
           </div>
         ))}
       </div>

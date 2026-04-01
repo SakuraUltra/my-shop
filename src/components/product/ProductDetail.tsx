@@ -67,7 +67,7 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
       <div className="flex flex-col gap-8 md:flex-row">
         {/* Left — Image gallery */}
         <div className="md:w-1/2">
-          <div className="relative aspect-square overflow-hidden rounded-lg bg-neutral-100">
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
             {product.images[selectedImage] ? (
               <Image
                 src={product.images[selectedImage]}
@@ -77,7 +77,7 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
                 priority
               />
             ) : (
-              <div className="h-full w-full bg-neutral-100" />
+              <div className="h-full w-full bg-neutral-100 dark:bg-neutral-800" />
             )}
           </div>
           {product.images.length > 1 && (
@@ -87,7 +87,7 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
                   key={idx}
                   onClick={() => setSelectedImage(idx)}
                   className={`relative h-16 w-16 flex-shrink-0 cursor-pointer overflow-hidden rounded border-2 ${
-                    idx === selectedImage ? "border-black" : "border-transparent"
+                    idx === selectedImage ? "border-black dark:border-white" : "border-transparent"
                   }`}
                 >
                   <Image src={img} alt={`${product.name} ${idx + 1}`} fill className="object-cover" />
@@ -118,13 +118,13 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
 
           {/* Description */}
           {product.description && (
-            <p className="mt-4 leading-relaxed text-neutral-600">{product.description}</p>
+            <p className="mt-4 leading-relaxed text-neutral-600 dark:text-neutral-400">{product.description}</p>
           )}
 
           {/* Color selector */}
           <div className="mt-6">
-            <h3 className="text-sm font-medium text-neutral-900">
-              Color{selectedColor && <span className="ml-2 font-normal text-neutral-500">— {selectedColor}</span>}
+            <h3 className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+              Color{selectedColor && <span className="ml-2 font-normal text-neutral-500 dark:text-neutral-400">— {selectedColor}</span>}
             </h3>
             <div className="mt-3 flex flex-wrap gap-3">
               {colors.map((color) => (
@@ -134,8 +134,8 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
                     setSelectedColor(color);
                     setSelectedSize(null);
                   }}
-                  className={`h-8 w-8 cursor-pointer rounded-full border-2 border-neutral-200 ${
-                    selectedColor === color ? "ring-2 ring-black ring-offset-2" : ""
+                  className={`h-8 w-8 cursor-pointer rounded-full border-2 border-neutral-200 dark:border-neutral-600 ${
+                    selectedColor === color ? "ring-2 ring-black ring-offset-2 dark:ring-white dark:ring-offset-neutral-950" : ""
                   }`}
                   style={{ backgroundColor: colorMap[color] ?? color.toLowerCase() }}
                   title={color}
@@ -146,7 +146,7 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
 
           {/* Size selector */}
           <div className="mt-6">
-            <h3 className="text-sm font-medium text-neutral-900">Size</h3>
+            <h3 className="text-sm font-medium text-neutral-900 dark:text-neutral-100">Size</h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {sizes.map((size) => {
                 const stock = stockForSize(size);
@@ -160,10 +160,10 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
                     disabled={outOfStock}
                     className={`cursor-pointer rounded border px-4 py-2 text-sm ${
                       isSelected
-                        ? "bg-black text-white"
+                        ? "bg-black text-white dark:bg-white dark:text-black"
                         : outOfStock
-                          ? "cursor-not-allowed border-neutral-200 text-neutral-300 line-through opacity-50"
-                          : "border-neutral-300 hover:border-black"
+                          ? "cursor-not-allowed border-neutral-200 text-neutral-300 line-through opacity-50 dark:border-neutral-700 dark:text-neutral-600"
+                          : "border-neutral-300 hover:border-black dark:border-neutral-600 dark:hover:border-white"
                     }`}
                   >
                     {size}
@@ -198,7 +198,7 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
                 image: product.images[0] ?? "",
               });
             }}
-            className="mt-6 w-full cursor-pointer rounded-lg bg-black py-3 text-sm font-medium text-white hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="mt-6 w-full cursor-pointer rounded-lg bg-black py-3 text-sm font-medium text-white hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
           >
             Add to cart
           </button>

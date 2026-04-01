@@ -193,7 +193,7 @@ export default function ProductListingContent() {
       {/* Header */}
       <div className="flex items-baseline justify-between">
         <h1 className="text-2xl font-semibold">All products</h1>
-        <span className="text-sm text-neutral-500">{filtered.length} products</span>
+        <span className="text-sm text-neutral-500 dark:text-neutral-400">{filtered.length} products</span>
       </div>
 
       <ProductFilters filters={filters} onChange={setFilters} />
@@ -220,12 +220,12 @@ export default function ProductListingContent() {
         </div>
       ) : (
         <div className="py-20 text-center">
-          <p className="text-neutral-500">No products found</p>
+          <p className="text-neutral-500 dark:text-neutral-400">No products found</p>
           <button
             onClick={() =>
               setFilters({ category: "All", color: "All", price: "All", sort: filters.sort })
             }
-            className="mt-4 cursor-pointer text-sm font-medium text-black underline underline-offset-4"
+            className="mt-4 cursor-pointer text-sm font-medium text-black underline underline-offset-4 dark:text-white"
           >
             Clear filters
           </button>

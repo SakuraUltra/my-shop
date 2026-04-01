@@ -20,7 +20,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-neutral-50">
+    <footer className="border-t bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
       <div className="mx-auto max-w-7xl px-4 py-12">
         {/* Top grid */}
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
@@ -29,7 +29,7 @@ export default function Footer() {
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide">
               My Shop
             </h4>
-            <p className="text-sm text-neutral-500">
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">
               Timeless essentials crafted with premium materials and minimal
               design.
             </p>
@@ -45,7 +45,7 @@ export default function Footer() {
                 <li key={link.href + link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-neutral-500 transition-colors hover:text-black"
+                    className="text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -64,7 +64,7 @@ export default function Footer() {
                 <li key={link.href + link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-neutral-500 transition-colors hover:text-black"
+                    className="text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-neutral-500 transition-colors hover:text-black"
+                    className="text-sm text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-8 flex items-center justify-between border-t pt-6">
+        <div className="mt-8 flex items-center justify-between border-t pt-6 dark:border-neutral-800">
           <span className="text-xs text-neutral-400">
             © 2026 Your Brand
           </span>
