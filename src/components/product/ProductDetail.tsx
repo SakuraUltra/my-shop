@@ -1,16 +1,15 @@
 "use client";
 
+import ImageGallery from "@/components/product/ImageGallery";
 import { useCartStore } from "@/store/cart";
 import type { Product, ProductVariant } from "@prisma/client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 
 type ProductWithVariants = Product & { variants: ProductVariant[] };
 
 export default function ProductDetail({ product }: { product: ProductWithVariants }) {
-  const [selectedImage, setSelectedImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const addItem = useCartStore((s) => s.addItem);
@@ -69,34 +68,7 @@ export default function ProductDetail({ product }: { product: ProductWithVariant
       <div className="flex flex-col gap-8 md:flex-row">
         {/* Left — Image gallery */}
         <div className="md:w-1/2">
-          <div className="relative aspect-square overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
-            {product.images[selectedImage] ? (
-              <Image
-                src={product.images[selectedImage]}
-                alt={product.name}
-                fill
-                className="object-cover"
-                priority
-              />
-            ) : (
-              <div className="h-full w-full bg-neutral-100 dark:bg-neutral-800" />
-            )}
-          </div>
-          {product.images.length > 1 && (
-            <div className="scrollbar-hide mt-4 flex gap-2 overflow-x-auto">
-              {product.images.map((img, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedImage(idx)}
-                  className={`relative h-16 w-16 flex-shrink-0 cursor-pointer overflow-hidden rounded border-2 ${
-                    idx === selectedImage ? "border-black dark:border-white" : "border-transparent"
-                  }`}
-                >
-                  <Image src={img} alt={`${product.name} ${idx + 1}`} fill className="object-cover" />
-                </button>
-              ))}
-            </div>
-          )}
+          <ImageGallery images={product.images} name={product.name} />
         </div>
 
         {/* Right — Product info */}
